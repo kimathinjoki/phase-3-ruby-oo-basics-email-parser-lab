@@ -12,16 +12,19 @@ class EmailAddressParser
     end
 
     def parse
-        b= @str.length
-        if !!(@str =~ /,/) == true
-            @str.split(", ").uniq
-        elsif !!(@str =~ /\s/) == true
-            @str.split(" ").uniq
-        elsif !!(@str =~ /, {1,b}/) == true && !!(@str =~ /\s{1,b}/) == true
-            @str.split(", ").uniq + @str.split(" ").uniq
-        else
-            []
-        end
+        # b= @str.length
+        # if !!(@str =~ /,/) == true
+        #     @str.split(", ").uniq
+        # elsif !!(@str =~ /\s/) == true
+        #     @str.split(" ").uniq
+        # elsif !!(@str =~ /, {1,b}/) == true && !!(@str =~ /\s{1,b}/) == true
+        #     @str.split(", ").uniq + @str.split(" ").uniq
+        # else
+        #     []
+        # end
+        
+        @str.split(/, | /).uniq
+
     end
 
 
